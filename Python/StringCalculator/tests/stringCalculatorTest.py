@@ -21,10 +21,17 @@ class StringCalculatorTest(unittest.TestCase):
         self.assertEqual(actual, 5)
 
     @parameterized.expand([
-        ["1, 2", 3],
-        ["2, 3, 10", 15],
-        ["3, 4, 1, 6", 14],
+        ["1,2", 3],
+        ["2,3,10", 15],
+        ["3,4,1,6", 14],
     ])
     def test_should_return_sum_of_numbers_for_numbers_string(self, numbers, expected):
+        actual = self.calculator.Add(numbers)
+        self.assertEqual(actual, expected)
+
+    @parameterized.expand([
+        ["1\n2",3],
+    ])
+    def test_should_return_sum_of_numbers_for_numbers_string_seperated_by_newline(self, numbers, expected):
         actual = self.calculator.Add(numbers)
         self.assertEqual(actual, expected)
