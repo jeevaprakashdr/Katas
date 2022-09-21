@@ -7,6 +7,7 @@ class StringCalculator:
             return 0
         else:
             numbers = self.__GetNumberCollection(numbers)
+            self.__CheckNegativeNumbers(numbers)
             sum_of_numbers = sum(numbers)
             return sum_of_numbers
 
@@ -29,3 +30,8 @@ class StringCalculator:
 
     def __MapToIntegerCollection(self, collection: list) -> list:
         return list(map(int, collection))
+
+    def __CheckNegativeNumbers(self, collection: list):
+        items = list(filter(lambda item: item < 0, collection))
+        if len(items) > 0:
+            raise RuntimeError("negatives not allowed")

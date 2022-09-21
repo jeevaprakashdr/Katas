@@ -35,3 +35,12 @@ class StringCalculatorTest(unittest.TestCase):
     def test_should_return_sum_of_numbers_for_numbers_string_seperated_by_newline(self, numbers, expected):
         actual = self.calculator.Add(numbers)
         self.assertEqual(actual, expected)
+
+    @parameterized.expand([
+        ["1, -2, -3"],
+    ])
+    def test_should_throw_exception_for_negative_numbers_in_string(self, number_string):
+        with self.assertRaises(RuntimeError, msg="negatives not allowed"):
+            self.calculator.Add(number_string)
+
+
