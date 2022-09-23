@@ -9,6 +9,7 @@ class StringCalculator:
             return int(numbers)
         else:
             numbers = self.__GetNumberCollection(numbers)
+            numbers = self.__filterNumbers(numbers)
             self.__CheckNegativeNumbers(numbers)
             return sum(numbers)
 
@@ -32,3 +33,6 @@ class StringCalculator:
         items = list(filter(lambda item: item < 0, collection))
         if len(items) > 0:
             raise RuntimeError("negatives not allowed")
+
+    def __filterNumbers(self, collection: list) -> list:
+        return list(filter(lambda item: item < 1000, collection))

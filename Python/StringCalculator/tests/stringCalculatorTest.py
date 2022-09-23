@@ -43,4 +43,11 @@ class StringCalculatorTest(unittest.TestCase):
         with self.assertRaises(RuntimeError, msg="negatives not allowed"):
             self.calculator.Add(number_string)
 
-
+    @parameterized.expand([
+        ["1,2,999", 1002],
+        ["1,2,1000", 3],
+        ["1,2,1001", 3]
+    ])
+    def test_should_return_sum_of_numbers_for_numbers_string_and_ignore_value_more_than_1000(self, numbers, expected):
+        actual = self.calculator.Add(numbers)
+        self.assertEqual(actual, expected)
