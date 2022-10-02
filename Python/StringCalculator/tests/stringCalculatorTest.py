@@ -31,6 +31,7 @@ class StringCalculatorTest(unittest.TestCase):
 
     @parameterized.expand([
         ["1\n2",3],
+        ["1\n2,3", 6],
     ])
     def test_should_return_sum_of_numbers_for_numbers_string_seperated_by_newline(self, numbers, expected):
         actual = self.calculator.Add(numbers)

@@ -14,20 +14,11 @@ class StringCalculator:
             return sum(numbers)
 
     def __GetNumberCollection(self, numbers: str) -> list:
-        collection = list([])
-        for separator in self.__separators:
-            if numbers.__contains__(separator):
-                collection = numbers.split(separator)
-            else:
-                collection = collection
-
-        return self.__MapToIntegerCollection(collection)
+        numbers = numbers.replace('\n', ',');
+        return list(map(int, numbers.split(",")))
 
     def __IsEmptyString(self, value: str) -> bool:
         return not value.strip()
-
-    def __MapToIntegerCollection(self, collection: list) -> list:
-        return list(map(int, collection))
 
     def __CheckNegativeNumbers(self, collection: list):
         items = list(filter(lambda item: item < 0, collection))
