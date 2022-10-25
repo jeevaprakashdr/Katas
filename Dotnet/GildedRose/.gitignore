@@ -1,9 +1,1 @@
 /.idea/
-obj
-/packages/
-*.pdb
-*.dll
-*.xml
-*DotSettings.*
-*.exe
-*.exe.*
