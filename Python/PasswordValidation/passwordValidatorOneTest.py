@@ -2,7 +2,6 @@ import unittest
 
 from passwordValidatorOne import PasswordValidatorOne
 
-
 class PasswordValidatorOneTest(unittest.TestCase):
 
     def test_password_should_have_more_than_8_characters(self):
